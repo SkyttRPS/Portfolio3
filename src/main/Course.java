@@ -1,19 +1,11 @@
 package main;
 
 public class Course {
-    private final Integer courseID;
-    private final String courseName;
-    private final Integer year;
-    private final String semester;
-    private final String teacher;
-
-    public Course(Integer id, String name, Integer year, String semester, String teacher){
-        this.courseID = id;
-        this.courseName = name;
-        this.year = year;
-        this.semester = semester;
-        this.teacher = teacher;
-    }
+    private Integer courseID;
+    private String courseName;
+    private Integer year;
+    private String semester;
+    private String teacher;
 
     public Integer getCourseID() {
         return courseID;
@@ -33,5 +25,25 @@ public class Course {
 
     public String getTeacher() {
         return teacher;
+    }
+
+    public void setCourseID(Integer courseID) {
+        this.courseID = courseID;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 }

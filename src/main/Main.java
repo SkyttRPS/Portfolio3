@@ -6,26 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.ByteArrayInputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main extends Application {
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 640, 480));
-        primaryStage.show();
-    }
-
     public static void main(String[] args) {
-        launch(args); // launches window
+        launch(args);
 
         Model model = new Model();
         if(!model.open()) {
@@ -35,7 +21,7 @@ public class Main extends Application {
 
         List<Student> students = model.queryStudents();
         if(students == null) {
-            System.out.println("No artists!");
+            System.out.println("No Students!");
             return;
         }
 
@@ -44,5 +30,15 @@ public class Main extends Application {
         }
 
         model.close();
+    }
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+
+        String url = "jdbc:sqlite:database.db";
+
+        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        primaryStage.setTitle("Student Database");
+        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.show();
     }
 }

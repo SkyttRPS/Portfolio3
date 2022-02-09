@@ -4,25 +4,24 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class Model {
-    private final String url;
-    private Connection conn = null;
+    public static final String DB_NAME = "database.db";
+    public static final String CONNECTION_STRING = "jdbc:sqlite:";
 
     // Table for students
-    public static final String TABLE_STUDENTS = "students";
-    public static final String COLUMN_STUDENT_ID = "id";
-    public static final String COLUMN_STUDENT_NAME = "name";
-    public static final String COLUMN_STUDENT_ADDRESS = "address";
+    public static final String COLUMN_STUDENT_ID = "StudentID";
+    public static final String COLUMN_STUDENT_NAME = "StudentName";
+    public static final String COLUMN_STUDENT_ADDRESS = "StudentAddress";
+
+    // Table for teachers
+
 
     // Table for
 
-
-    public Model(String url){
-        this.url = url;
-    }
+    private Connection conn;
 
     public boolean open() {
         try {
-            conn = DriverManager.getConnection(url);
+            conn = DriverManager.getConnection(CONNECTION_STRING);
             return true;
         } catch(SQLException e) {
             System.out.println("Couldn't connect to database: " + e.getMessage());
@@ -46,7 +45,7 @@ public class Model {
     public ArrayList<Student> queryStudents() {
 
         try (Statement statement = conn.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_STUDENTS)) {
+            ResultSet results = statement.executeQuery("SELECT * FROM Students")) {
             ArrayList<Student> students = new ArrayList<>();
             while(results.next()) {
                 Student student = new Student();

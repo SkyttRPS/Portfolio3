@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 public class Course {
     private final Integer courseID;

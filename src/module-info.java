@@ -3,5 +3,5 @@ module Portfolio3 {
     requires javafx.controls;
     requires java.sql;
 
-    opens sample;
+    opens main;
 }

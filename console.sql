@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS Teachers (
     TeacherAddress TEXT NOT NULL
 );
 
-DROP TABLE IF EXISTS Coursse;
+DROP TABLE IF EXISTS Course;
 CREATE TABLE IF NOT EXISTS Courses (
     CourseID integer PRIMARY KEY,
     CourseName TEXT NOT NULL,

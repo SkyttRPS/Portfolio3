@@ -107,6 +107,7 @@ public class Model {
         }
     }
 
+    // A method to query the database for average grade of student
     public Float getAverageGradeOfStudent(int id){
         Float averageGrade = null;
         String query = "SELECT AVG(Grade) FROM Grades WHERE StudentID = ?;";
@@ -125,7 +126,6 @@ public class Model {
         } finally {
             close();
         }
-
         return averageGrade;
     }
 }

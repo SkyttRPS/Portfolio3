@@ -14,15 +14,19 @@ public class Main extends Application {
         launch(args);
 
         Model model = new Model();
+
         if(!model.open()) {
-            System.out.println("Can't open datasource");
+            System.out.println("Can't open model");
             return;
         }
 
         List<Student> students = model.queryStudents();
+        List<Course> courses = model.queryCourses();
         if(students == null) {
             System.out.println("No Students!");
             return;
+        } else if (courses == null) {
+            System.out.println("No Courses!");
         }
 
         for(Student student : students) {
